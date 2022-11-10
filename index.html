@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>!해보자 개발자!</title>
+
+
+    <script src="index.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }      
+        
+        body {
+            background-image: url("https://wallpaperaccess.com/full/27991.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: black;
+
+            color: white;
+        }
+
+        .time {
+            font-size: 80px;
+            font-weight: bold;
+        }
+
+        .time2 {
+            font-size: 80px;
+            font-weight: bold;
+            color: rgb(255, 115, 0);
+        }
+
+        .greeting {
+            font-size: 50px;
+        }
+
+        .todo {
+            font-size: 30px;
+            color: rgb(255, 115, 0);
+        }
+
+        .author {
+            font-size: 15px;
+            font-style: italic;
+        }
+
+        .content {
+            font-size: 25px;
+        }
+
+        .main {
+            width: 100vw;
+            height: 75vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote {
+            width: 100vw;
+            height: 40vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+    </style>
+
+    <script>
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div id="date" class="time">12:00</div>
+        <div id="date2" class="time2">12:00</div>
+        <div class="greeting">Hello, DK</div>
+        <div class="todo">가보자고 개발자 세계로! </div>
+    </div>
+    <div class="quote">
+        <div id="content" class="content">" 명언의 내용 "</div>
+        <div id="author" class="author">- 명언의 저자 -</div>
+    </div>
+
+    <script>
+        var clockTarget = document.getElementById("date");
+
+        function date() {
+            var date = new Date();
+
+            // date Object를 받아오고 
+            var month = date.getMonth();
+
+            // 달을 받아옵니다 
+            var clockDate = date.getDate();
+
+            // 몇일인지 받아옵니다 
+            var day = date.getDay();
+
+            // 요일을 받아옵니다. 
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+            // 요일은 숫자형태로 리턴되기때문에 미리 배열을 만듭니다. 
+            var hours = date.getHours();
+
+            // 시간을 받아오고 
+            var minutes = date.getMinutes();
+
+            // 분도 받아옵니다.
+            var seconds = date.getSeconds();
+
+            // 초까지 받아온후 
+            clockTarget .innerText = `${month+1}월 ${clockDate}일 ${week[day]}요일`;
+
+          
+            // 월은 0부터 1월이기때문에 +1일을 해주고 
+
+            // 시간 분 초는 한자리수이면 시계가 어색해보일까봐 10보다 작으면 앞에0을 붙혀주는 작업을 3항연산으로 했습니다. 
+        }
+
+
+
+        function init() {
+
+        date();
+
+        // 최초에 함수를 한번 실행시켜주고 
+        setInterval(date, 1000);
+
+        // setInterval이라는 함수로 매초마다 실행을 해줍니다.
+
+        // setInterval은 첫번째 파라메터는 함수이고 두번째는 시간인데 밀리초단위로 받습니다. 1000 = 1초 
+
+        }
+
+
+
+        init();
+    </script>
+    
+    <script>
+        var clockTarget = document.getElementById("date2");
+
+        function date2() {
+            var date = new Date();
+
+            // date Object를 받아오고 
+            var month = date.getMonth();
+
+            // 달을 받아옵니다 
+            var clockDate = date.getDate();
+
+            // 몇일인지 받아옵니다 
+            var day = date.getDay();
+
+            // 요일을 받아옵니다. 
+            var week = ['일', '월', '화', '수', '목', '금', '토'];
+
+            // 요일은 숫자형태로 리턴되기때문에 미리 배열을 만듭니다. 
+            var hours = date.getHours();
+
+            // 시간을 받아오고 
+            var minutes = date.getMinutes();
+
+            // 분도 받아옵니다.
+            var seconds = date.getSeconds();
+
+            // 초까지 받아온후 
+            clockTarget .innerText = 
+            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes }`  : minutes }:${seconds < 10 ? `0${seconds }`  : seconds }`;
+
+            // 월은 0부터 1월이기때문에 +1일을 해주고 
+
+            // 시간 분 초는 한자리수이면 시계가 어색해보일까봐 10보다 작으면 앞에0을 붙혀주는 작업을 3항연산으로 했습니다. 
+        }
+
+
+
+        function init() {
+
+        date2();
+
+        // 최초에 함수를 한번 실행시켜주고 
+        setInterval(date2, 1000);
+
+        // setInterval이라는 함수로 매초마다 실행을 해줍니다.
+
+        // setInterval은 첫번째 파라메터는 함수이고 두번째는 시간인데 밀리초단위로 받습니다. 1000 = 1초 
+
+        }
+
+
+
+        init();
+    </script>
+
+</body>
+
+</html>
